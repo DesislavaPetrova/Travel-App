@@ -1,0 +1,7 @@
+<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC|Opens+Sans"><title>Travel App</title><link href="main.css" rel="stylesheet"></head><body><header class="header"><img class="logo" src="src/client/images/logo.png" alt="Logo picture"><h1 class="header_text">Travello</h1></header><main><p id="error">This is an error</p><section class="container"><div class="container_travel"><label>Destination</label> <input placeholder="Please enter destination" id="destination"></div><div class="container_travel"><label>Country</label> <select name="" id="countries"></select></div><div class="container_travel"><label for="start">Start Date</label> <input type="date" id="date_start" placeholder="mm/dd/yyyy"></div><div class="container_travel"><label for="end"></label>End Date <input type="date" id="date_end" placeholder="mm/dd/yyyy"></div><button id="save">Save</button></section></main><footer class="footer">Created with &hearts; by Desislava Petrova</footer><script>// Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }</script><script src="bundle.min.js"></script></body></html>
