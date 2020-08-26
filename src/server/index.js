@@ -44,7 +44,7 @@ app.get('/getCoordinates', async (req, res) => {
     console.log('Get input data: ', req.query.location);
     let location = req.query.location;
     const user = process.env.GEONAME_USER;
-    let geoname = await formHandler.getCoordinates(location, user);
+    let geoname = await getCoordinates(location, user);
     if (!geoname.lenght == 1) {
         res.send({'lat': geoname[0], 'long': geoname[1]});
     } else {
@@ -67,7 +67,7 @@ async function getCoordinates(location, user) {
 // Weatherbit API - information about the weather 
 app.get('/getWeather', async (req, res) => {
     const weatherKey = process.env.WEATHERBIT_KEY;
-    let weather = await formHandler.getWeather(req.query.lat, req.query.long, req.query.Diff, weatherKey);
+    let weather = await getWeather(req.query.lat, req.query.long, req.query.Diff, weatherKey);
     if (weather.lenght == 2) {
         console.log({'description': weather[0], 'temp': weather[1]});
         res.send({'description': weather[0], 'temp': weather[1]});
@@ -102,7 +102,7 @@ async function getWeather(lat, long, lengthOfTrip, weatherKey) {
 app.get('/getPictures', async (req, res) => {
     console.log('Get input data: ', req.query.location);
     const pixabayKey = process.env.PIXABAY_KEY;
-    let pictures = await formHandler.getPictures(req.query.location, pixabayKey);
+    let pictures = await getPictures(req.query.location, pixabayKey);
     res.send(pictures);
 });
 
